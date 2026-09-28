@@ -1,1 +1,97 @@
-:root{font-family:-apple-system,BlinkMacSystemFont,"SF Pro Display","Segoe UI",sans-serif;color:#111827;background:#f3f4f6}*{box-sizing:border-box}body{margin:0;min-height:100vh;background:linear-gradient(160deg,#eef2ff 0%,#f8fafc 46%,#f3f4f6 100%)}.app-shell{max-width:760px;margin:0 auto;padding:24px 16px 40px}.hero{display:flex;justify-content:space-between;gap:16px;align-items:flex-start;margin-bottom:18px}.eyebrow{font-size:12px;font-weight:700;letter-spacing:.12em;color:#6366f1;margin:0 0 8px}h1{margin:0;font-size:34px;line-height:1.05}.subtitle{margin:8px 0 0;color:#64748b}.card{background:rgba(255,255,255,.94);border:1px solid #e5e7eb;border-radius:20px;padding:20px;margin:14px 0;box-shadow:0 10px 30px rgba(15,23,42,.06)}h2{font-size:18px;margin:0 0 16px}.grid{display:grid;grid-template-columns:1fr 1fr;gap:14px}label{display:flex;flex-direction:column;gap:7px;font-size:13px;font-weight:650;color:#374151}.full{grid-column:1/-1}input,select{width:100%;border:1px solid #d1d5db;border-radius:12px;background:#fff;padding:12px 13px;font:inherit;font-weight:450;color:#111827;min-height:46px}input:focus,select:focus{outline:3px solid rgba(99,102,241,.16);border-color:#6366f1}.summary-card{padding:15px 18px}.summary-row{display:flex;justify-content:space-between;gap:12px;padding:8px 0}.summary-row+.summary-row{border-top:1px solid #eef2f7}.actions{display:grid;grid-template-columns:1fr 1fr;gap:12px;margin-top:18px}button{border:0;border-radius:14px;padding:14px 16px;font:inherit;font-weight:700;cursor:pointer;min-height:50px}.primary{background:#111827;color:#fff}.secondary{background:#fff;color:#111827;border:1px solid #d1d5db}.compact{padding:10px 14px;min-height:42px}button:active{transform:translateY(1px)}.status{min-height:24px;text-align:center;color:#475569;margin:14px 0}.privacy{text-align:center;font-size:12px;color:#94a3b8;margin-top:20px}@media(max-width:620px){.app-shell{padding:18px 12px 32px}.hero h1{font-size:29px}.grid,.actions{grid-template-columns:1fr}.full{grid-column:auto}.card{padding:16px}.hero{align-items:center}}
+:root{
+  font-family:-apple-system,BlinkMacSystemFont,"SF Pro Display","Segoe UI",sans-serif;
+  color:#111827;background:#f3f4f6;
+}
+*{box-sizing:border-box}
+html{overflow-x:hidden}
+body{
+  margin:0;min-height:100vh;
+  background:linear-gradient(160deg,#eef2ff 0%,#f8fafc 46%,#f3f4f6 100%);
+}
+body.modal-open{overflow:hidden}
+button,input,select{font:inherit}
+button{touch-action:manipulation}
+.app-shell{width:100%;max-width:700px;margin:0 auto;padding:20px 14px 36px}
+.hero{display:flex;justify-content:space-between;gap:14px;align-items:flex-start;margin-bottom:16px}
+.eyebrow{font-size:10px;font-weight:800;letter-spacing:.1em;color:#6366f1;margin:0 0 6px}
+h1{margin:0;font-size:30px;line-height:1.08;letter-spacing:-.02em}
+.subtitle{margin:7px 0 0;color:#64748b;font-size:14px;line-height:1.4}
+.card{
+  width:100%;background:rgba(255,255,255,.95);border:1px solid #e5e7eb;
+  border-radius:16px;padding:16px;margin:12px 0;
+  box-shadow:0 7px 22px rgba(15,23,42,.05);
+}
+h2{font-size:17px;line-height:1.2;margin:0 0 13px}
+.grid{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:12px}
+label{min-width:0;display:flex;flex-direction:column;gap:6px;font-size:12px;font-weight:700;color:#374151}
+.full{grid-column:1/-1}
+input,select{
+  min-width:0;width:100%;height:44px;border:1px solid #d1d5db;border-radius:10px;
+  background:#fff;padding:9px 11px;color:#111827;font-size:15px;font-weight:450;
+}
+input::placeholder{color:#9ca3af}
+input:focus,select:focus{outline:3px solid rgba(99,102,241,.14);border-color:#6366f1}
+.summary-card{padding:12px 15px}
+.summary-row{display:flex;justify-content:space-between;align-items:center;gap:12px;padding:7px 0;font-size:13px}
+.summary-row strong{max-width:70%;text-align:right;overflow-wrap:anywhere}
+.summary-row+.summary-row{border-top:1px solid #eef2f7}
+.actions{display:grid;grid-template-columns:1fr 1fr;gap:10px;margin-top:16px}
+button{
+  border:0;border-radius:11px;padding:12px 13px;font-weight:750;
+  cursor:pointer;min-height:46px;line-height:1.15;
+}
+.primary{background:#111827;color:#fff}
+.secondary{background:#fff;color:#111827;border:1px solid #d1d5db}
+.compact{padding:9px 12px;min-height:38px;font-size:13px}
+button:active{transform:translateY(1px)}
+.status{min-height:22px;text-align:center;color:#475569;font-size:13px;margin:12px 0}
+.privacy{text-align:center;font-size:11px;line-height:1.4;color:#94a3b8;margin-top:16px}
+
+/* Firma */
+.modal[hidden]{display:none}
+.modal{position:fixed;inset:0;z-index:1000}
+.modal-backdrop{position:absolute;inset:0;background:rgba(15,23,42,.48);backdrop-filter:blur(3px)}
+.signature-sheet{
+  position:absolute;left:50%;bottom:0;transform:translateX(-50%);
+  width:min(100%,620px);background:#fff;border-radius:20px 20px 0 0;
+  padding:18px 16px calc(16px + env(safe-area-inset-bottom));
+  box-shadow:0 -12px 35px rgba(15,23,42,.2);
+}
+.modal-header{display:flex;justify-content:space-between;align-items:flex-start;gap:12px}
+.modal-header h2{margin:0}
+.icon-button{
+  min-height:36px;width:36px;padding:0;border-radius:50%;
+  background:#f1f5f9;color:#334155;font-size:25px;font-weight:400;
+}
+.signature-help{margin:4px 0 12px;color:#64748b;font-size:13px;line-height:1.35}
+.signature-pad-wrap{
+  position:relative;width:100%;height:180px;border:1.5px dashed #94a3b8;
+  border-radius:12px;background:#fafafa;overflow:hidden;touch-action:none;
+}
+#signaturePad{display:block;width:100%;height:100%;touch-action:none}
+.signature-placeholder{
+  position:absolute;left:50%;top:50%;transform:translate(-50%,-50%);
+  color:#cbd5e1;font-size:16px;pointer-events:none;
+}
+.signature-actions{display:grid;grid-template-columns:.7fr 1.3fr;gap:10px;margin-top:12px}
+
+@media(max-width:620px){
+  .app-shell{padding:16px 11px 30px}
+  .hero{gap:8px}
+  h1{font-size:26px}
+  .subtitle{font-size:13px}
+  .card{padding:14px;margin:10px 0;border-radius:14px}
+  h2{font-size:16px}
+  .grid,.actions{grid-template-columns:1fr}
+  .full{grid-column:auto}
+  input,select{height:43px}
+  .actions button{min-height:45px}
+  .signature-sheet{padding-left:13px;padding-right:13px}
+  .signature-pad-wrap{height:165px}
+}
+@media(max-width:360px){
+  .app-shell{padding-left:9px;padding-right:9px}
+  .hero h1{font-size:24px}
+  .compact{padding-left:9px;padding-right:9px}
+  .card{padding:12px}
+}
