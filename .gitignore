@@ -1,0 +1,19 @@
+# OS / editor
+.DS_Store
+Thumbs.db
+.vscode/
+.idea/
+*.swp
+*.swo
+
+# Local development
+.env
+.env.*
+node_modules/
+npm-debug.log*
+
+# Generated / temporary files
+*.pdf
+coverage/
+dist/
+build/
