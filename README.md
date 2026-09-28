@@ -13,6 +13,14 @@ Web app mobile-first per compilare una richiesta di ferie o altra assenza e gene
 - PWA installabile su iPhone;
 - Service Worker per l'utilizzo offline dopo il primo caricamento.
 
+## Versione web
+
+Quando GitHub Pages è abilitato tramite **Settings → Pages → Source: GitHub Actions**, l'app sarà disponibile all'indirizzo:
+
+`https://grievesk.github.io/requestVacation/`
+
+Questo è l'indirizzo da aprire in Safari e da usare per **Aggiungi alla schermata Home**. La visualizzazione del file `index.html` dentro GitHub è solo un'anteprima del codice e non è il modo corretto per eseguire l'app.
+
 ## Utilizzo
 
 Non richiede un backend.
