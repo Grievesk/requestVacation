@@ -1,0 +1,23 @@
+<!doctype html>
+<html lang="it"><head>
+<meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
+<meta name="theme-color" content="#111827"><link rel="manifest" href="manifest.webmanifest">
+<link rel="apple-touch-icon" href="icons/icon.svg"><link rel="stylesheet" href="styles.css">
+<title>Richiesta Assenza</title></head>
+<body><main class="app-shell">
+<header class="hero"><div><p class="eyebrow">MYORCHESTRATOR · UTILITY</p><h1>Richiesta di assenza</h1><p class="subtitle">Compila, genera il PDF e allegalo alla mail.</p></div><button id="resetBtn" class="secondary compact">Reset</button></header>
+<section class="card"><h2>Dati dipendente</h2><div class="grid">
+<label>Nome e cognome<input id="employeeName" autocomplete="name" placeholder="Mario Rossi"></label>
+<label>Reparto / mansione<input id="department" placeholder="Piegatura lamiere"></label>
+<label>Data richiesta<input id="requestDate" type="date"></label>
+<label>Email<input id="email" type="email" autocomplete="email" placeholder="nome@azienda.it"></label>
+</div></section>
+<section class="card"><h2>Periodo e tipo di assenza</h2><div class="grid">
+<label>Dal<input id="fromDate" type="date"></label><label>Al<input id="toDate" type="date"></label>
+<label class="full">Tipo di permesso<select id="leaveType"><option>Ferie</option><option>Permesso</option><option>Legge 104</option><option>Permesso non retribuito</option><option>Malattia</option><option>ROL / ex festività</option><option>Altro</option></select></label>
+<label class="full">Note / motivazione<input id="notes" placeholder="Eventuali note aggiuntive"></label>
+</div></section>
+<section class="card summary-card"><div class="summary-row"><span>Periodo</span><strong id="periodSummary">—</strong></div><div class="summary-row"><span>Tipo</span><strong id="typeSummary">Ferie</strong></div></section>
+<section class="actions"><button id="pdfBtn" class="primary">Genera PDF</button><button id="mailBtn" class="secondary">Prepara email</button></section>
+<p id="status" class="status" role="status" aria-live="polite"></p><p class="privacy">I dati restano nel dispositivo finché non cancelli o resetti il modulo.</p>
+</main><script src="https://unpkg.com/jspdf@latest/dist/jspdf.umd.min.js"></script><script src="app.js"></script></body></html>
